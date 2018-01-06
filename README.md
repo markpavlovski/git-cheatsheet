@@ -11,7 +11,6 @@
 ## Notes
 
 
-<a name="config"/>
 ### git config
 
 --global specifies settings for user, --system for overall computer, and with no option just for the projects
