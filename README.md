@@ -30,6 +30,7 @@
 * git remote show origin: inspects remote branches
 
 <a name="fetch-pull"/>
+
 ### git fetch | git pull
 
 The difference is that fetch just pull the files down but does not automatically merge them. the pull command fetches and tries to merge automatically.
@@ -39,11 +40,13 @@ To use git pull with no options, an upstream needs to be set up.
 * git fetch myfork master: the format is git fetch [remote name] [branch name]
 
 <a name="status"/>
+
 ### git status
 
 * git status -s: short option condenses the status output
 
 <a name="log"/>
+
 ### git log
 
 Shows the commit history, with a lot of different options
@@ -52,6 +55,7 @@ Shows the commit history, with a lot of different options
 * git log --pretty=format:"%h-%an,%ar:%s"
 
 <a name="commit"/>
+
 ### git commit
 
 * git commit -m "commit message here"
