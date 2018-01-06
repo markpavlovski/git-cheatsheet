@@ -25,6 +25,7 @@
 
 * git remote -v: shows detailed remote addresses
 * git remote add myfork https://github.com/mrkpvlvski/reponame
+* git remote show origin: inspects remote branches
 
 <a name="fetch-pull"/>
 ### git fetch | git pull
