@@ -1,6 +1,6 @@
 # Notes on Git from Git Pro book
 
-### Table of Contents  
+## Table of Contents  
 [git config](#config)  
 [git remote](#remote)  
 [git fetch | git pull](#fetch-pull)  
@@ -8,7 +8,7 @@
 [git log](#log)  
 [git commit](#commit)  
 
-#  
+## Notes
 
 
 <a name="config"/>
