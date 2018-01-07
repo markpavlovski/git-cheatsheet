@@ -8,6 +8,7 @@
 [git log](#log)  
 [git commit](#commit)  
 [git tag](#commit)  
+[git alias](#alias)
 
 
 ## Notes
@@ -77,3 +78,19 @@ Tags do not automatically transfer to server with a push command
 * git tag -a v1.2 9fceb02: this is used when tagging later, and refers to the hex or partial hex of the commit checksum
 * git push origin v1.2: pushes the tag to the server
 * git push origin --tags: pushes all the tags that are not already on the server
+
+<a name="alias"/>
+
+### git alias
+
+Alias is a way to create your own git commands. Often used to short hand notations for common git commands or create custom commands that you feel should already be a thing.
+
+* git alias: shows existing aliases
+* git config --global alias.co checkout
+* git config --global alias.br branch
+* git config --global alias.st status
+* git config --global alias.unstage 'reset HEAD --'
+  * git unstage fileA
+* git config --global alias.last 'log -1 HEAD'
+  * git last: will return only the log of last commit
+* git config --global alias.visual '!gitk': this is a way to run non-git commands; you simply include the "!" character.
