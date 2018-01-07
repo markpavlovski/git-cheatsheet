@@ -122,6 +122,7 @@ Branching in git is a pointer to a commit. Its essentially a 41 bite file that h
 
 * git branch: shows existing branches
 * git branch newbranchname
+* git branch -d mybranchname
 
 <a name="checkout"/>
 
