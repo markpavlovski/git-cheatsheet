@@ -1,6 +1,9 @@
 # Notes on Git from Git Pro book
 
-## Table of Contents  
+## Table of Contents
+
+#### Basics
+
 [git config](#config)  
 [git remote](#remote)  
 [git fetch | git pull](#fetch-pull)  
@@ -10,8 +13,13 @@
 [git tag](#commit)  
 [git alias](#alias)
 
+#### Branching
 
-## Notes
+[git branch](#branch)
+
+---
+
+## Basics
 
 
 <a name="config"></a>
@@ -94,3 +102,24 @@ Alias is a way to create your own git commands. Often used to short hand notatio
 * git config --global alias.last 'log -1 HEAD'
   * git last: will return only the log of last commit
 * git config --global alias.visual '!gitk': this is a way to run non-git commands; you simply include the "!" character.
+
+---
+
+
+## Branching
+
+Branching in git is a pointer to a commit. Its essentially a 41 bite file that holds a 40 character hex hash. A special HEAD pointer is used to specify which branch you are currently on.
+
+<a name="branch"/>
+
+### git branch
+
+* git branch newbranchname
+
+<a name="checkout"/>
+
+### git checkout
+Warning: git checkout replaces the content of the working directory with whatever the target branch snapshot is. This may give errors if git cant do it cleanly.
+
+* git checkout master: moves HEAD to master branch.
+* git checkout otherbranch: moves HEAD pointer to otherbranch branch.
