@@ -13,9 +13,15 @@
 [git tag](#commit)  
 [git alias](#alias)
 
+
 #### Branching
 
-[git branch](#branch)
+
+[git branch](#branch)  
+[git checkout](#checkout)  
+[git log](#branchlog)
+
+
 
 ---
 
@@ -124,3 +130,11 @@ Warning: git checkout replaces the content of the working directory with whateve
 
 * git checkout master: moves HEAD to master branch.
 * git checkout otherbranch: moves HEAD pointer to otherbranch branch.
+
+<a name="branchlog"/>
+
+### git log
+There are a couple of nice ways to visualize branching in the terminal
+
+* git log  --oneline --decorate --graph --all
+* git log  --oneline --decorate
