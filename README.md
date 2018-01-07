@@ -7,6 +7,8 @@
 [git status](#status)  
 [git log](#log)  
 [git commit](#commit)  
+[git tag](#commit)  
+
 
 ## Notes
 
@@ -60,3 +62,18 @@ Shows the commit history, with a lot of different options
 
 * git commit -m "commit message here"
 * git commit -amend: modifies last commit. Most common is to just change the message
+
+<a name="tag"/>
+
+### git tag
+
+Tags are used to denote key commits in project history, like v1.0, etc. These can be long form (standard) or short form lightweight (that only stores a reference to the commit without storing committers info).
+Tags do not automatically transfer to server with a push command
+
+* git tag -a v1.0 -m "message"
+* git show v1.0
+* git tag v1.1-lw: lightweight is not the preferred way. Does not work with the -a,-s, or m versions.
+* git show v1.1-lw
+* git tag -a v1.2 9fceb02: this is used when tagging later, and refers to the hex or partial hex of the commit checksum
+* git push origin v1.2: pushes the tag to the server
+* git push origin --tags: pushes all the tags that are not already on the server
