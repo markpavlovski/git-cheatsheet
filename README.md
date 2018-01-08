@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-#### Basics
+#### General
 
 [git config](#config)  
 [git remote](#remote)  
@@ -11,21 +11,24 @@
 [git log](#log)  
 [git commit](#commit)  
 [git tag](#commit)  
-[git alias](#alias)
+[git alias](#alias)  
+[git show](#show)
 
 
-#### Branching
+#### Branching Basics
 
 
 [git branch](#branch)  
 [git checkout](#checkout)  
-[git log](#branchlog)
+[git log](#branchlog)  
+[git merge](#merge)
+
 
 
 
 ---
 
-## Basics
+## General
 
 
 <a name="config"></a>
@@ -74,6 +77,7 @@ Shows the commit history, with a lot of different options
 <a name="commit"/>
 
 ### git commit
+Each commit contains info on the 'parent' commit, file 'blobs' in the snapshot, and a unique hash.
 
 * git commit -m "commit message here"
 * git commit -amend: modifies last commit. Most common is to just change the message
@@ -109,12 +113,21 @@ Alias is a way to create your own git commands. Often used to short hand notatio
   * git last: will return only the log of last commit
 * git config --global alias.visual '!gitk': this is a way to run non-git commands; you simply include the "!" character.
 
+<a name='show'/>
+
+### git show
+
+* git show 00fbe44a863077189e6cdf8ec79d99d44323896e: shows details of the commit object
+
+
 ---
 
 
-## Branching
+## Branching Basics
 
 Branching in git is a pointer to a commit. Its essentially a 41 bite file that holds a 40 character hex hash. A special HEAD pointer is used to specify which branch you are currently on.
+
+There are several type of objects that get created along the way. For example, when you create three files in a brand new project and add then commit them, 5 files are created: master branch object that points to the latest commit in the branch (this only includes the hash of the commit it's pointing to), commit object that shows whats included in the snapshot of files added in the commit + some additional info (with a hexadecimal hash), and three files that were added.
 
 <a name="branch"/>
 
@@ -122,7 +135,7 @@ Branching in git is a pointer to a commit. Its essentially a 41 bite file that h
 
 * git branch: shows existing branches
 * git branch newbranchname
-* git branch -d mybranchname
+* git branch -d mybranchname: deletes the branch
 
 <a name="checkout"/>
 
@@ -138,4 +151,12 @@ Warning: git checkout replaces the content of the working directory with whateve
 There are a couple of nice ways to visualize branching in the terminal
 
 * git log  --oneline --decorate --graph --all
-* git log  --oneline --decorate
+* git log  --oneline --decorate    
+
+<a name="merge"/>
+
+### git merge
+Checkout the branch you want to merge onto first, then use the merge command
+* git checkout master
+* git merge testbranch -m "merge message": this will merge test branch onto master.
+If there are no conflicts, this is very straight forward. This will create a new commit with the parent set to be both of the commits merged.
