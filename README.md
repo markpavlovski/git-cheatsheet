@@ -132,6 +132,7 @@ There are several type of objects that get created along the way. For example, w
 <a name="branch"/>
 
 ### git branch
+Important: branch name is just a pointer object that point to a commit. With every new commit branch object refreshes the pointer.
 
 * git branch: shows existing branches
 * git branch newbranchname
@@ -142,8 +143,11 @@ There are several type of objects that get created along the way. For example, w
 ### git checkout
 Warning: git checkout replaces the content of the working directory with whatever the target branch snapshot is. This may give errors if git cant do it cleanly.
 
+Checkout moves HEAD reference between branches. Technically it sets HEAD reference to be the same as in the branchname object.
+
 * git checkout master: moves HEAD to master branch.
 * git checkout otherbranch: moves HEAD pointer to otherbranch branch.
+* git checkout -b anothernewbranch: creates a new branch and moves there right away
 
 <a name="branchlog"/>
 
@@ -156,7 +160,7 @@ There are a couple of nice ways to visualize branching in the terminal
 <a name="merge"/>
 
 ### git merge
-Checkout the branch you want to merge onto first, then use the merge command
+Checkout the branch you want to merge onto first, then use the merge command. Fast-forward merge happens when a new branch is just elongation of the previous source branch (so no changes were made on the source branch).
 * git checkout master
 * git merge testbranch -m "merge message": this will merge test branch onto master.
 If there are no conflicts, this is very straight forward. This will create a new commit with the parent set to be both of the commits merged.
