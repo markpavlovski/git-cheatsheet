@@ -55,9 +55,11 @@
 
 The difference is that fetch just pull the files down but does not automatically merge them. the pull command fetches and tries to merge automatically.
 
+Fetch goes out and checks server for latest remote branch information.
+
 To use git pull with no options, an upstream needs to be set up.
 
-* git fetch myfork master: the format is git fetch [remote name] [branch name]
+* git fetch origin master: the format is git fetch [remote name] [branch name]
 
 <a name="status"/>
 
@@ -137,6 +139,9 @@ Important: branch name is just a pointer object that point to a commit. With eve
 * git branch: shows existing branches
 * git branch newbranchname
 * git branch -d mybranchname: deletes the branch
+* git branch --set-upstream-to origin/awesomebranch, or equivalently
+  * git branch -u origin/awesomebranch : this sets up tracking for a remote branch for an already existing branch.
+* git branch -vv: list local branches with more info
 
 <a name="checkout"/>
 
@@ -148,6 +153,9 @@ Checkout moves HEAD reference between branches. Technically it sets HEAD referen
 * git checkout master: moves HEAD to master branch.
 * git checkout otherbranch: moves HEAD pointer to otherbranch branch.
 * git checkout -b anothernewbranch: creates a new branch and moves there right away
+* git checkout -b awesomebranch origin/awesomebranch: creates a new branch, checks it out, and automatically sets up tracking
+  * this command is so common that it has an inbuilt shorthand, i.e. git checkout --track origin/awesomebranch: note that this automatically creates a branch with the same name as the one on the server.
+
 
 <a name="branchlog"/>
 
@@ -164,3 +172,8 @@ Checkout the branch you want to merge onto first, then use the merge command. Fa
 * git checkout master
 * git merge testbranch -m "merge message": this will merge test branch onto master.
 If there are no conflicts, this is very straight forward. This will create a new commit with the parent set to be both of the commits merged.
+
+Merging remote branches can be done as well. I think you must first fetch to get the latest branch info from the server. Then git merge will be a local operation that will use the remote  branch info to create a new merge commit.
+
+* git merge origin/master
+* git merge @{u} or {@upstream} can be used in place of origin/master if merging with the upstream branch (the one being tracked).
