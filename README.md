@@ -20,10 +20,10 @@
 
 [git branch](#branch)  
 [git checkout](#checkout)  
-[git log](#branchlog)  
-[git merge](#merge)
-
-
+[git log](#branchlog)	
+[git merge](#merge)	
+[git push origin --delete](#deleteremotebranch)	
+[git rebase](#rebase)
 
 
 ---
@@ -177,3 +177,26 @@ Merging remote branches can be done as well. I think you must first fetch to get
 
 * git merge origin/master
 * git merge @{u} or {@upstream} can be used in place of origin/master if merging with the upstream branch (the one being tracked).
+
+<a name="deleteremotebranch"/>
+
+### delete remote branch
+
+Deleting a branch on the server is done with a git push command.
+
+*  git push origin --delete stupidbranch anotherstupidbranch
+
+<a name="rebase"/a>
+
+### git rebase
+
+Rebasing is a different approach to merging data. While git merge creates a new commit that points to the commits from previous branches, git rebase creates moves the commit to the branch you are rebasing onto, and does not show 'true' history.	
+
+Rebasing is often used if you are trying to show clean history, when you are publishing a project. Never rebase work that's shared - its really confusing. 
+
+Example:
+
+* git checkout experiment
+* git rebase master: this will rebase the new commits from experiment branch to master branch
+
+
