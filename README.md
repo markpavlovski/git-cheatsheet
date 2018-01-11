@@ -194,9 +194,17 @@ Rebasing is a different approach to merging data. While git merge creates a new 
 
 Rebasing is often used if you are trying to show clean history, when you are publishing a project. Never rebase work that's shared - its really confusing. 
 
-Example:
+Example Workflow:
 
 * git checkout experiment
-* git rebase master: this will rebase the new commits from experiment branch to master branch
+* git rebase master: this will rebase the new commits from experiment branch to master branch - so now the commits on the rebase branch are fast-forwardable from the master branch. Git does some magic here and pretends like the changes on the experiment branch were done to the files already in the latest commit  on master.
+* git checkout master
+* git merge experiment : the last two steps fast forward the master branch to where experiment branch head is.
 
+Other examples of rebase:
+
+* git rebase master server: will rebase server on top of master.
+* git rebase master server client: this is a clever way of rebasing changes made to the client onto master, without bringing changes made on server to master
+
+Rebasing modifies original commits. However, there is still a patch-id that's kept that can be used as last resort.
 
