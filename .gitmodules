@@ -1,0 +1,3 @@
+[submodule "PlatonicSolids-Code"]
+	path = PlatonicSolids
+	url = https://github.com/mrkpvlvski/PlatonicSolids-Code
